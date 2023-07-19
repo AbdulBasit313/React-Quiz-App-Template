@@ -1,4 +1,47 @@
-# Xeven Quiz - ReactJS Quiz App Template Code Documentations
+# Xeven Quiz - ReactJS Quiz App Template
+
+With **Xeven Quiz**, you don't have to spend hours coding from scratch. Our template provides a solid foundation, eliminating the need to reinvent the wheel. You'll spend less time developing your app, which lets you focus on the unique. Xeven Quiz helps you follow industry best practices and coding conventions as a beginner.
+
+As a beginner developer, a quiz app is a common project. But without guidance, this simple project can become difficult. Xeven Quiz is here to change that narrative and give you the tools and knowledge you need to create a successful and efficient quiz app.
+
+With a strong architecture and modular design, you can easily add new features, expand your question database, and accommodate a growing user base without experiencing any setbacks.
+
+### Powerful Tech Stack
+
+- Reactjs
+- Typescript
+- Styled components
+
+With **ReactJS** at its core, it lets you design dynamic interfaces that automatically update and respond to user interactions.
+
+**TypeScript** brings enhanced development productivity through static typing and intelligent tooling. 
+
+**Styled Components** ensure fast and intuitive styling, allowing you to create stunning interfaces effortlessly.
+
+## React Quiz App's Theme Features
+
+Before I explain the technical aspects of the quiz app, let me share the wonderful features of the quiz app. You can get all these features in a template and mold them according to your choice.
+
+- The user can pick a quiz topic on the first screen, like JavaScript, react, or Python.
+- Each time, questions will be shuffled or randomized.
+- There will be a timer running when the quiz starts. If the timer finishes, the quiz will be stopped, and the user will be asked to see the result.
+- Users can skip a question if they are unsure of the answer. They can return to it later and answer it before submitting the quiz.
+- Each question has a score. For example, a difficult question has 10 marks, and an easier one has 5.
+- The template also supports three types of questions, MCQs, True/False, and MAQs.
+- The template allows for adding code snippets in questions. You can easily assess the users' programming knowledge and skills.
+- The result screen shows how many questions the user attempted, how much he scored, how long it took, and whether he passed or failed.
+- In result screen user can see which question had the right answer and which was wrong. The user can find the correct answer in case of a wrong answer.
+
+## React Quiz App's Code Features
+
+- **TypeScript powered Components:** All components are TypeScript-built for enhanced development productivity with intelligent code completion and compile-time error checking.
+- **Easy Theme Customization:** The template provides easy theme management with IntelliSense support via Styled Components and Typescript. It allows you to customize the app's appearance without relying on hard-coded colors.
+- **Flexible Question Data Structure:**The template uses Javascript/TypeScript files to define quiz questions. This format provides a structured and flexible approach. The same format can also be used to fetch questions from an API if desired.
+- **Modular and Context Pattern:**The template follows a javascript modular and React Context pattern, promoting component reusability and maintainability.
+- **Custom Hooks for Logic Sharing:**The hook pattern lets you share logic across components. It also promotes code reuse and minimizes code clutter.
+- **Built with React Best Practices:** App follows industry-leading React practices. Our template ensures optimal structure, scalability, and maintainability.
+
+## Xeven Quiz - ReactJS Quiz App Template Code Documentations
 
 Welcome to the Code Quiz App documentation! This guide will walk you through the steps to start using and customizing the app according to your needs. The Code Quiz App is designed to help you create interactive quizzes with various question types, including Multiple Choice Questions (MCQs), Multiple Answer Questions (MAQs), and True/False questions.
 
