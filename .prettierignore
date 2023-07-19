@@ -1,0 +1,15 @@
+# directories
+.yarn/
+**/build
+**/dist
+**/node_modules
+
+# files
+*.env
+*.log
+*.tsbuildinfo
+.pnp.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+README.md
