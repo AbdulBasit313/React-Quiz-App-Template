@@ -1,3 +1,4 @@
+![React Quiz App Template Cover Image](./src/assets/images/Xeven-Quiz-ReactJS-Quiz-App-Template.jpg)
 # Xeven Quiz - ReactJS Quiz App Template
 
 With **Xeven Quiz**, you don't have to spend hours coding from scratch. Our template provides a solid foundation, eliminating the need to reinvent the wheel. You'll spend less time developing your app, which lets you focus on the unique. Xeven Quiz helps you follow industry best practices and coding conventions as a beginner.
