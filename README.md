@@ -21,15 +21,12 @@ With **ReactJS** at its core, it lets you design dynamic interfaces that automat
 
 ## React Quiz App's Theme Features
 
-Before I explain the technical aspects of the quiz app, let me share the wonderful features of the quiz app. You can get all these features in a template and mold them according to your choice.
+Before I explain the technical aspects of the quiz app, let me share the wonderful features of the quiz app that is available in demo GitHub version. You can get all these features in a template and mold them according to your choice.
 
-- The user can pick a quiz topic on the first screen, like JavaScript, react, or Python.
-- Each time, questions will be shuffled or randomized.
+- Each time the quiz starts, questions will be shuffled or randomized.
 - There will be a timer running when the quiz starts. If the timer finishes, the quiz will be stopped, and the user will be asked to see the result.
-- Users can skip a question if they are unsure of the answer. They can return to it later and answer it before submitting the quiz.
 - Each question has a score. For example, a difficult question has 10 marks, and an easier one has 5.
 - The template also supports three types of questions, MCQs, True/False, and MAQs.
-- The template allows for adding code snippets in questions. You can easily assess the users' programming knowledge and skills.
 - The result screen shows how many questions the user attempted, how much he scored, how long it took, and whether he passed or failed.
 - In result screen user can see which question had the right answer and which was wrong. The user can find the correct answer in case of a wrong answer.
 
@@ -44,7 +41,7 @@ Before I explain the technical aspects of the quiz app, let me share the wonderf
 
 ## Xeven Quiz - ReactJS Quiz App Template Code Documentations
 
-Welcome to the Code Quiz App documentation! This guide will walk you through the steps to start using and customizing the app according to your needs. The Code Quiz App is designed to help you create interactive quizzes with various question types, including Multiple Choice Questions (MCQs), Multiple Answer Questions (MAQs), and True/False questions.
+This guide will walk you through the steps to start using and customizing the app according to your needs. The Code Quiz App is designed to help you create interactive quizzes with various question types, including Multiple Choice Questions (MCQs), Multiple Answer Questions (MAQs), and True/False questions.
 
 ## Demo App
 
@@ -54,7 +51,7 @@ To experience the Demo App, visit the link: https://xeven-quiz.vercel.app/
 
 To start the project, follow these steps:
 
-1. Open the terminal and navigate to the project directory.
+1. Clone this repo and navigate to the project directory via terminal.
 2. Run the command **`npm install`** to download and install all the project dependencies.
 3. Once the dependencies are installed, run the command **`npm start`** to start the development server.
 
@@ -77,13 +74,12 @@ Understanding the folder structure is essential for working with the app. Here's
 
 ### Components Architecture
 
-The **Xeven Quiz App** consists of 5 main screens/components that are displayed conditionally:
+The **Xeven Quiz App** consists of 4 main screens/components that are displayed conditionally (in light version):
 
 1. Splash Screen
-2. Quiz Topics Screen
-3. Quiz Details Screen
-4. Questions Screen
-5. Result Screen
+2. Quiz Details Screen
+3. Questions Screen
+4. Result Screen
 
 The screens are organized in the **`components`** folder since the app does not utilize routing. If a component is reusable and can be used in multiple places within the app (e.g., Button, ModalWrapper, and CodeSnippet), it is placed in the **`components/UI`** folder. On the other hand, if a component is screen-specific and separated just to make other components smaller and more manageable, it is placed in the relevant components folder. For example, the components `**QuizHeader**`, `**Question**`, and `**Answer**` are inside the **`QuestionScreen`** folder.
 
@@ -202,21 +198,7 @@ function Main() {
 export default Main
 ```
 
-### **How to Add Code Snippets in Questions**
-
-Each question supports a **`code`** key, which is conditionally shown only if the question contains a code snippet.
-
-### How to format code snippet
-
-In the Xeven Quiz App, code snippets are pieces of code represented as text. To make them look nice and readable, we use an npm package called **`prismjs`**. This tool highlights the code with different colors so that it stands out and is easy to understand.
-
-To display code correctly, we need to pay attention to the spaces and how the code is structured, just like we do with the existing questions. This way, the code will appear neatly formatted and will be easier for users to read and comprehend.
-
-Here's an example image to illustrate the correct format for displaying code snippets:
-
-![code-snippet-format.png](./src/assets/images/code-snippet-format.png)
-
-### **Implementing Different Types of Quiz Questions**
+### Implementing Different Types of Quiz Questions
 
 The Code Quiz App supports various types of quiz questions, including Multiple Choice Questions (MCQs), Multiple Answer Questions (MAQs), and True/False questions. To add different question types, you can modify the question components and their associated data structures. You can refer to the existing question formats in the **`data/QuizQuestions`** folder as examples when creating new questions.
 
@@ -224,9 +206,21 @@ For example, if you want to create a Multiple Choice Question (MCQ), you need to
 
 **Remember:** For MAQs, users can select multiple answer options, while for MCQs and True/False questions, users can select only one option. Make sure to set the correct **`type`** to match the question's behavior accordingly.
 
-### **Important Note**
+### Important Note
 
 Before making the Code Quiz App your own, remember to customize the meta and title tags in the **`index.html`** file, as well as the logo, preview image, and favicon image in the **`public`** folder. This ensures that the app reflects your branding and identity.
+
+## Upgrade to PRO version
+
+Discover the Premium Version! Elevate your experience with the same amazing features you have seen in [demo](https://xeven-quiz.vercel.app/) app. 
+
+[Check it out now!](https://basit313.gumroad.com/l/react-quiz-app-template)
+
+### Premium Version Highlights
+
+- The user can pick a quiz topic on the first screen, like JavaScript, react, or Python.
+- Users can skip a question if they are unsure of the answer. They can return to it later and answer it before submitting the quiz.
+- The template allows for adding code snippets in questions. You can easily assess the users' programming knowledge and skills.
 
 ## **Deploying the Quiz App to a Production Environment**
 
@@ -239,12 +233,6 @@ To share your quiz app with the world, you need to deploy it on a server that su
 
 Choose the one that best suits your needs and follow their deployment instructions to make your app accessible to users.
 
-### What to expect in next update?
-
-The next app update, scheduled for September 2023, will bring exciting new features and improvements:
-
-1. Dark mode support.
-2. Image support in Quiz Questions.
-3. Faster Typography with Typography Styled components
+### Contact Me
 
 I hope this documentation helps you get started with the Xeven Quiz App. If you have any questions or feedback, please feel free to reach out to me at **[abdul_basit313@outlook.com](mailto:abdul_basit313@outlook.com)**. Happy quizzing!
