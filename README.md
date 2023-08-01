@@ -34,14 +34,14 @@ Before I explain the technical aspects of the quiz app, let me share the wonderf
 
 - **TypeScript powered Components:** All components are TypeScript-built for enhanced development productivity with intelligent code completion and compile-time error checking.
 - **Easy Theme Customization:** The template provides easy theme management with IntelliSense support via Styled Components and Typescript. It allows you to customize the app's appearance without relying on hard-coded colors.
-- **Flexible Question Data Structure:**The template uses Javascript/TypeScript files to define quiz questions. This format provides a structured and flexible approach. The same format can also be used to fetch questions from an API if desired.
-- **Modular and Context Pattern:**The template follows a javascript modular and React Context pattern, promoting component reusability and maintainability.
-- **Custom Hooks for Logic Sharing:**The hook pattern lets you share logic across components. It also promotes code reuse and minimizes code clutter.
+- **Flexible Question Data Structure:** The template uses Javascript/TypeScript files to define quiz questions. This format provides a structured and flexible approach. The same format can also be used to fetch questions from an API if desired.
+- **Modular and Context Pattern:** The template follows a javascript modular and React Context pattern, promoting component reusability and maintainability.
+- **Custom Hooks for Logic Sharing:** The hook pattern lets you share logic across components. It also promotes code reuse and minimizes code clutter.
 - **Built with React Best Practices:** App follows industry-leading React practices. Our template ensures optimal structure, scalability, and maintainability.
 
 ## Xeven Quiz - ReactJS Quiz App Template Code Documentations
 
-This guide will walk you through the steps to start using and customizing the app according to your needs. The Code Quiz App is designed to help you create interactive quizzes with various question types, including Multiple Choice Questions (MCQs), Multiple Answer Questions (MAQs), and True/False questions.
+This guide will walk you through the steps to start using and customizing the app according to your needs. The Xeven Quiz is designed to help you create interactive quizzes with various question types, including Multiple Choice Questions (MCQs), Multiple Answer Questions (MAQs), and True/False questions.
 
 ## Demo App
 
@@ -51,7 +51,7 @@ To experience the Demo App, visit the link: https://xeven-quiz.vercel.app/
 
 To start the project, follow these steps:
 
-1. Clone this repo and navigate to the project directory via terminal.
+1. Clone the repo and navigate to the project directory via terminal.
 2. Run the command **`npm install`** to download and install all the project dependencies.
 3. Once the dependencies are installed, run the command **`npm start`** to start the development server.
 
@@ -81,7 +81,7 @@ The **Xeven Quiz App** consists of 4 main screens/components that are displayed 
 3. Questions Screen
 4. Result Screen
 
-The screens are organized in the **`components`** folder since the app does not utilize routing. If a component is reusable and can be used in multiple places within the app (e.g., Button, ModalWrapper, and CodeSnippet), it is placed in the **`components/UI`** folder. On the other hand, if a component is screen-specific and separated just to make other components smaller and more manageable, it is placed in the relevant components folder. For example, the components `**QuizHeader**`, `**Question**`, and `**Answer**` are inside the **`QuestionScreen`** folder.
+The screens are organized in the **`components`** folder since the app does not utilize routing. If a component is reusable and can be used in multiple places within the app (e.g., Button, ModalWrapper, and CodeSnippet), it is placed in the **`components/UI`** folder. On the other hand, if a component is screen-specific and separated just to make other components smaller and more manageable, it is placed in the relevant components folder. For example, the components `QuizHeader`, `Question`, and `Answer` are inside the **`QuestionScreen`** folder.
 
 ## How to customize the quiz layout and styling
 
@@ -218,9 +218,9 @@ Discover the Premium Version! Elevate your experience with the same amazing feat
 
 ### Premium Version Highlights
 
-- The user can pick a quiz topic on the first screen, like JavaScript, react, or Python.
+- The user can pick a quiz topic on the first screen, like JavaScript, React, or Python.
 - Users can skip a question if they are unsure of the answer. They can return to it later and answer it before submitting the quiz.
-- The template allows for adding code snippets in questions. You can easily assess the users' programming knowledge and skills.
+- The PRO version also allows for adding code snippets in questions. You can easily assess the users' programming knowledge and skills.
 
 ## **Deploying the Quiz App to a Production Environment**
 
