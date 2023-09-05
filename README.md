@@ -218,6 +218,7 @@ Discover the Premium Version! Elevate your experience with the same amazing feat
 
 ### Premium Version Highlights
 
+- Elevate user experience by seamlessly toggling between light and dark modes with a single click from the top menu.
 - The user can pick a quiz topic on the first screen, like JavaScript, React, or Python.
 - Users can skip a question if they are unsure of the answer. They can return to it later and answer it before submitting the quiz.
 - The PRO version also allows for adding code snippets in questions. You can easily assess the users' programming knowledge and skills.
