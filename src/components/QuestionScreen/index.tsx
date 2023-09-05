@@ -86,9 +86,9 @@ const QuestionScreen: FC = () => {
   const { question, type, choices, correctAnswers } = currentQuestion
 
   const onClickNext = () => {
-    const isMatch: boolean = correctAnswers.every(
-      (answer: string, index: number) => answer === selectedAnswer[index]
-    )
+    const isMatch: boolean =
+      selectedAnswer.length === correctAnswers.length &&
+      selectedAnswer.every((answer) => correctAnswers.includes(answer))
 
     // adding selected answer, and if answer matches key to result array with current question
     setResult([...result, { ...currentQuestion, selectedAnswer, isMatch }])
