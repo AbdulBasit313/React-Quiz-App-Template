@@ -7,6 +7,8 @@ interface ButtonTypes {
   icon?: ReactNode
   iconPosition?: 'left' | 'right'
   outline?: boolean
+  bold?: boolean
+  big?: boolean
   disabled?: boolean
 }
 
@@ -16,10 +18,18 @@ const Button: FC<ButtonTypes> = ({
   icon,
   iconPosition,
   outline,
+  bold,
+  big,
   disabled,
 }) => {
   return (
-    <ButtonStyle onClick={onClick} outline={outline} disabled={disabled}>
+    <ButtonStyle
+      onClick={onClick}
+      outline={outline}
+      bold={bold}
+      big={big}
+      disabled={disabled}
+    >
       {icon && iconPosition === 'left' && <IconLeft>{icon}</IconLeft>}
       {text}
       {icon && iconPosition === 'right' && <IconRight>{icon}</IconRight>}

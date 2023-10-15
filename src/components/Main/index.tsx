@@ -5,6 +5,7 @@ import { ScreenTypes } from '../../types'
 
 import QuestionScreen from '../QuestionScreen'
 import QuizDetailsScreen from '../QuizDetailsScreen'
+import QuizTopicsScreen from '../QuizTopicsScreen'
 import ResultScreen from '../ResultScreen'
 import SplashScreen from '../SplashScreen'
 
@@ -13,12 +14,13 @@ function Main() {
 
   useEffect(() => {
     setTimeout(() => {
-      setCurrentScreen(ScreenTypes.QuizDetailsScreen)
+      setCurrentScreen(ScreenTypes.QuizTopicsScreen)
     }, 1000)
   }, [setCurrentScreen])
 
   const screenComponents = {
     [ScreenTypes.SplashScreen]: <SplashScreen />,
+    [ScreenTypes.QuizTopicsScreen]: <QuizTopicsScreen />,
     [ScreenTypes.QuizDetailsScreen]: <QuizDetailsScreen />,
     [ScreenTypes.QuestionScreen]: <QuestionScreen />,
     [ScreenTypes.ResultScreen]: <ResultScreen />,

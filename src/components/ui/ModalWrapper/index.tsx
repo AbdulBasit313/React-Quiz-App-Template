@@ -19,7 +19,7 @@ const ModalContainer = styled.div`
 const ModalContent = styled.div`
   width: 600px;
   padding: 50px 25px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -65,7 +65,7 @@ const ModalWrapper: FC<ModalWrapperProps> = ({
         {icon}
         <ModalTitle>{title}</ModalTitle>
         <ModalSubtitle>{subtitle}</ModalSubtitle>
-        <Button text={buttonTitle} onClick={onClick} />
+        <Button text={buttonTitle} onClick={onClick} bold big />
       </ModalContent>
     </ModalContainer>
   )

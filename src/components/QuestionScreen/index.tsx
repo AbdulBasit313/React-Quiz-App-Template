@@ -16,7 +16,7 @@ import QuizHeader from './QuizHeader'
 const QuizContainer = styled.div<{ selectedAnswer: boolean }>`
   width: 900px;
   min-height: 500px;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 4px;
   padding: 30px 60px 80px 60px;
   margin-bottom: 70px;
@@ -30,7 +30,7 @@ const QuizContainer = styled.div<{ selectedAnswer: boolean }>`
       svg {
         path {
           fill: ${({ selectedAnswer, theme }) =>
-            selectedAnswer ? `${theme.colors.white}` : `${theme.colors.darkGrayText}`};
+            selectedAnswer ? `${theme.colors.buttonText}` : `${theme.colors.darkGray}`};
         }
       }
     }
@@ -71,7 +71,6 @@ const QuestionScreen: FC = () => {
 
   const {
     questions,
-    setQuestions,
     quizDetails,
     result,
     setResult,
@@ -83,7 +82,7 @@ const QuestionScreen: FC = () => {
 
   const currentQuestion = questions[activeQuestion]
 
-  const { question, type, choices, correctAnswers } = currentQuestion
+  const { question, type, choices, code, image, correctAnswers } = currentQuestion
 
   const onClickNext = () => {
     const isMatch: boolean =
@@ -106,6 +105,16 @@ const QuestionScreen: FC = () => {
 
   const handleAnswerSelection = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target
+
+    if (type === 'MAQs') {
+      if (selectedAnswer.includes(name)) {
+        setSelectedAnswer((prevSelectedAnswer) =>
+          prevSelectedAnswer.filter((element) => element !== name)
+        )
+      } else {
+        setSelectedAnswer((prevSelectedAnswer) => [...prevSelectedAnswer, name])
+      }
+    }
 
     if (type === 'MCQs' || type === 'boolean') {
       if (checked) {
@@ -142,6 +151,8 @@ const QuestionScreen: FC = () => {
         />
         <Question
           question={question}
+          code={code}
+          image={image}
           choices={choices}
           type={type}
           handleAnswerSelection={handleAnswerSelection}

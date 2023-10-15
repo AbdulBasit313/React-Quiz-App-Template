@@ -2,7 +2,6 @@ import { FC } from 'react'
 import styled from 'styled-components'
 
 import { HighlightedText } from '../../../styles/Global'
-import { theme } from '../../../styles/Theme'
 
 interface RightAnswerProps {
   correctAnswers: string[]
@@ -25,7 +24,7 @@ const RightAnswer: FC<RightAnswerProps> = ({ correctAnswers, choices }) => {
         const label = String.fromCharCode(65 + choices.indexOf(item))
 
         return (
-          <HighlightedText key={index} color={theme.colors.primaryText}>
+          <HighlightedText key={index} themeText>
             {`${label} (${item})${index !== correctAnswers.length - 1 ? ', ' : ''}`}
           </HighlightedText>
         )

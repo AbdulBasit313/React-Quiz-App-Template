@@ -8,9 +8,9 @@ const AnswerStyle = styled.div<{ highlightAnswer: boolean }>`
   font-weight: 400;
   border: 1px solid
     ${({ highlightAnswer, theme }) =>
-      highlightAnswer ? `${theme.colors.themeColor}` : `${theme.colors.lightGray}`};
+      highlightAnswer ? `${theme.colors.themeColor}` : `${theme.colors.border}`};
   background-color: ${({ highlightAnswer, theme }) =>
-    highlightAnswer ? `${theme.colors.lightPink}` : `${theme.colors.white}`};
+    highlightAnswer ? `${theme.colors.selectedAnswer}` : `${theme.colors.answerBg}`};
   border-radius: 16px;
   margin-top: clamp(13px, calc(10px + 6 * ((100vw - 600px) / 1320)), 16px);
   cursor: pointer;
@@ -29,7 +29,7 @@ const AnswerStyle = styled.div<{ highlightAnswer: boolean }>`
 `
 
 const AnswerLabel = styled.label`
-  padding: 16px;
+  padding: 18px;
   display: flex;
   cursor: pointer;
   @media ${device.md} {

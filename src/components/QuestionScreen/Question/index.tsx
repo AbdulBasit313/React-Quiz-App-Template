@@ -3,7 +3,9 @@ import styled from 'styled-components'
 
 import { device } from '../../../styles/BreakPoints'
 
+import CodeSnippet from '../../ui/CodeSnippet'
 import Answer from '../Answer'
+import QuizImage from '../../ui/QuizImage'
 
 const QuestionContainer = styled.div`
   margin-top: 30px;
@@ -31,6 +33,8 @@ const QuestionStyle = styled.h2`
 
 interface QuestionTypes {
   question: string
+  code?: string
+  image?: string
   type: string
   choices: string[]
   selectedAnswer: string[]
@@ -39,6 +43,8 @@ interface QuestionTypes {
 
 const Question: FC<QuestionTypes> = ({
   question,
+  code,
+  image,
   type,
   choices,
   selectedAnswer,
@@ -47,6 +53,10 @@ const Question: FC<QuestionTypes> = ({
   return (
     <QuestionContainer>
       <QuestionStyle>{question}</QuestionStyle>
+      {/* if question contains code snippet then show code */}
+      {code && <CodeSnippet code={code} language="javascript" />}
+      {/* if question contains an image */}
+      {image && <QuizImage image={image} />}
       <AnswersContainer>
         {choices.map((choice, index) => (
           <Answer

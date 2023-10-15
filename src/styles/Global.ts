@@ -24,8 +24,8 @@ body {
   text-rendering: optimizeSpeed;
   font-family: ${({ theme }) => theme.fonts.anekMalayalam}, sans-serif;
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text};
-  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.themeText};
+  background: ${({ theme }) => theme.colors.background};
   line-height: 1;
   overflow-x: hidden;
   position: relative;
@@ -136,6 +136,7 @@ export const PageCenter = styled.div<PageCenterTypes>`
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  padding-top: 50px;
   // due to flex direction column
   ${({ justifyCenter }) =>
     justifyCenter &&
@@ -180,7 +181,7 @@ export const Flex = styled.div<FlexProps>`
 `
 
 export const CenterCardContainer = styled.div`
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 4px;
   min-width: 773px;
   min-height: 620px;
@@ -194,8 +195,26 @@ export const CenterCardContainer = styled.div`
   }
 `
 
-export const HighlightedText = styled.span`
-  color: ${({ color, theme }) => (color ? color : theme.colors.themeColor)};
+export const HighlightedText = styled.span<{ themeText?: boolean }>`
+  color: ${({ themeText, theme }) =>
+    themeText ? theme.colors.themeText : theme.colors.themeColor};
+`
+
+export const LogoContainer = styled.div`
+  text-align: center;
+  margin-bottom: 50px;
+  @media ${device.md} {
+    margin-bottom: 30px;
+  }
+  svg {
+    width: 220px;
+    rect {
+      stroke: ${({ theme }) => theme.colors.appLogo};
+    }
+    path {
+      fill: ${({ theme }) => theme.colors.appLogo};
+    }
+  }
 `
 
 interface ResizableBoxProps {

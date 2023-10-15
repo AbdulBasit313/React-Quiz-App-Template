@@ -1,35 +1,30 @@
 import { FC } from 'react'
 import styled, { css } from 'styled-components'
 
-import { AppColoredLogo, Refresh } from '../../config/icons'
+import { AppLogo, Refresh } from '../../config/icons'
 import { useQuiz } from '../../context/QuizContext'
 import { device } from '../../styles/BreakPoints'
-import { Flex, ResizableBox } from '../../styles/Global'
+import { Flex, LogoContainer, ResizableBox } from '../../styles/Global'
 import { refreshPage } from '../../utils/helpers'
 
 import Button from '../ui/Button'
+import CodeSnippet from '../ui/CodeSnippet'
+import QuizImage from '../ui/QuizImage'
 import ResultOverview from './ResultOverview'
 import RightAnswer from './RightAnswer'
 
 const ResultScreenContainer = styled.div`
   max-width: 900px;
-  margin: 80px auto;
+  margin: 60px auto;
   @media ${device.md} {
     width: 90%;
     margin: 30px auto;
-  }
-`
-
-const LogoContainer = styled.div`
-  text-align: center;
-  margin-bottom: 50px;
-  @media ${device.md} {
-    margin-bottom: 30px;
+    padding-top: 40px;
   }
 `
 
 const InnerContainer = styled.div`
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 4px;
   margin: 0 auto;
   margin-bottom: 40px;
@@ -72,11 +67,12 @@ interface AnswerProps {
 }
 
 const Answer = styled.li<AnswerProps>`
-  border: 1px solid ${({ theme }) => theme.colors.lightGray};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   width: 90%;
   @media ${device.md} {
     width: 100%;
   }
+  background: ${({ theme }) => theme.colors.answerBg};
   border-radius: 16px;
   font-size: clamp(16px, 5vw, 18px);
   font-weight: 600;
@@ -132,13 +128,22 @@ const ResultScreen: FC = () => {
   return (
     <ResultScreenContainer>
       <LogoContainer>
-        <AppColoredLogo />
+        <AppLogo />
       </LogoContainer>
       <InnerContainer>
         <ResultOverview result={result} />
         {result.map(
           (
-            { question, choices, correctAnswers, selectedAnswer, score, isMatch },
+            {
+              question,
+              choices,
+              code,
+              image,
+              correctAnswers,
+              selectedAnswer,
+              score,
+              isMatch,
+            },
             index: number
           ) => {
             return (
@@ -149,6 +154,8 @@ const ResultScreen: FC = () => {
                     <QuestionStyle>{question}</QuestionStyle>
                   </Flex>
                   <div>
+                    {code && <CodeSnippet code={code} language="javascript" />}
+                    {image && <QuizImage image={image} />}
                     <ul>
                       {choices.map((ans: string, index: number) => {
                         // Convert index to alphabet character
@@ -184,6 +191,7 @@ const ResultScreen: FC = () => {
           onClick={onClickRetry}
           icon={<Refresh />}
           iconPosition="left"
+          bold
         />
       </Flex>
     </ResultScreenContainer>

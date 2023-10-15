@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
-import { Logo, StartIcon } from '../../config/icons'
+import { AppLogo, StartIcon } from '../../config/icons'
 import { useQuiz } from '../../context/QuizContext'
-import { CenterCardContainer, HighlightedText, PageCenter } from '../../styles/Global'
+import {
+  CenterCardContainer,
+  HighlightedText,
+  LogoContainer,
+  PageCenter,
+} from '../../styles/Global'
 import { ScreenTypes } from '../../types'
 import { convertSeconds } from '../../utils/helpers'
-import { useShuffleQuestions } from '../../hooks'
 
 import Button from '../ui/Button'
 
@@ -13,7 +17,6 @@ const AppTitle = styled.h2`
   font-weight: 700;
   font-size: 32px;
   color: ${({ theme }) => theme.colors.themeColor};
-  margin-top: 34px;
 `
 
 const DetailTextContainer = styled.div`
@@ -41,13 +44,12 @@ const QuizDetailsScreen = () => {
     setCurrentScreen(ScreenTypes.QuestionScreen)
   }
 
-  // to shuffle or randomize quiz questions
-  useShuffleQuestions()
-
   return (
     <PageCenter light justifyCenter>
       <CenterCardContainer>
-        <Logo />
+        <LogoContainer>
+          <AppLogo />
+        </LogoContainer>
         <AppTitle>XEVEN QUIZ</AppTitle>
         <DetailTextContainer>
           <DetailText>
@@ -63,12 +65,17 @@ const QuizDetailsScreen = () => {
           <DetailText>
             Total time: <HighlightedText>{convertSeconds(totalTime)}</HighlightedText>
           </DetailText>
+          <DetailText>
+            To save time, you can skip questions. Skipped questions will show up at the
+            end of the quiz.
+          </DetailText>
         </DetailTextContainer>
         <Button
           text="Start"
           icon={<StartIcon />}
           iconPosition="left"
           onClick={goToQuestionScreen}
+          bold
         />
       </CenterCardContainer>
     </PageCenter>

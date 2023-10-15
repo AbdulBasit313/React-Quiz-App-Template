@@ -3,6 +3,7 @@ import { Question } from '../data/QuizQuestions'
 
 export enum ScreenTypes {
   SplashScreen,
+  QuizTopicsScreen,
   QuizDetailsScreen,
   QuestionScreen,
   ResultScreen,
@@ -11,7 +12,6 @@ export enum ScreenTypes {
 export interface Result extends Question {
   selectedAnswer: string[]
   isMatch: boolean
-  score: number
 }
 
 export type QuizContextTypes = {
