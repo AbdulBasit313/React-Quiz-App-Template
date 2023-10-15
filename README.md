@@ -1,4 +1,5 @@
-![React Quiz App Template Cover Image](./src/assets/images/Xeven-Quiz-ReactJS-Quiz-App-Template.jpg)
+![React Quiz App Template Cover Image](./src/assets/images/ReactJS-Quiz-App-Template.jpg)
+
 # Xeven Quiz - ReactJS Quiz App Template
 
 With **Xeven Quiz**, you don't have to spend hours on coding from scratch. This Quiz App template provides a solid foundation, eliminating the need to reinvent the wheel. You'll spend less time developing your app, which lets you focus on the unique. 
@@ -22,6 +23,8 @@ With **ReactJS** at its core, it lets you design dynamic interfaces that automat
 **TypeScript** brings enhanced development productivity through static typing and intelligent tooling. 
 
 **Styled Components** ensure fast and intuitive styling, allowing you to create stunning interfaces effortlessly.
+
+![React Quiz App Template](./src/assets/images/Xeven-Quiz-App-Screenshots.png)
 
 ## React Quiz App's Theme Features
 
@@ -58,6 +61,8 @@ Before I explain the technical aspects of the quiz app, let me share the wonderf
 - **Custom Hooks for Logic Sharing**: The hook pattern lets you share logic across components. It also promotes code reuse and minimizes code clutter.
 
 - **Built with React Best Practices**: App follows industry-leading React practices. Our template ensures optimal structure, scalability, and maintainability.
+
+![types of questions](./src/assets/images/3-types-of-questions.png)
 
 ## Xeven Quiz - ReactJS Quiz App Template Code Documentations
 
