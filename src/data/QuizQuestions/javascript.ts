@@ -49,7 +49,7 @@ x += 2;
 x *= 3;`,
       choices: ['21', '25', '33', '35'],
       type: 'MCQs',
-      correctAnswers: ['25'],
+      correctAnswers: ['21'],
       score: 10,
     },
     {
