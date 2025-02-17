@@ -268,6 +268,10 @@ For example, if you want to create a Multiple Choice Question (MCQ), you need to
 
 Before making the Code Quiz App your own, remember to customize the meta and title tags in the **`index.html`** file, as well as the logo, preview image, and favicon image in the **`public`** folder. This ensures that the app reflects your branding and identity.
 
+## New Variant
+
+Looking for a **Tailwind CSS** version? Check out GitHub Repo of [Flexy Quiz](https://github.com/AbdulBasit313/react-tailwind-quiz-app) – built with **React** and **Tailwind CSS** for a sleek and dynamic UI. Here is the [demo of Flexy Quiz](https://flexy-quiz.netlify.app/).
+
 ## Upgrade to PRO version
 
 Discover the Premium Version! Elevate your experience with the same amazing features you have seen in [demo](https://xeven-quiz.vercel.app/) app. 
