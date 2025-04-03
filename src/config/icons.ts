@@ -1,10 +1,10 @@
-import { ReactComponent as AppLogo } from '../assets/icons/app-logo.svg'
-import { ReactComponent as CheckIcon } from '../assets/icons/check.svg'
-import { ReactComponent as Next } from '../assets/icons/next.svg'
-import { ReactComponent as Refresh } from '../assets/icons/refresh.svg'
-import { ReactComponent as TimerIcon } from '../assets/icons/timer.svg'
-import { ReactComponent as StartIcon } from '../assets/icons/start.svg'
-import { ReactComponent as Sun } from '../assets/icons/sun.svg'
-import { ReactComponent as Moon } from '../assets/icons/moon.svg'
+import AppLogo from '../assets/icons/app-logo.svg?react'
+import CheckIcon from '../assets/icons/check.svg?react'
+import Next from '../assets/icons/next.svg?react'
+import Refresh from '../assets/icons/refresh.svg?react'
+import TimerIcon from '../assets/icons/timer.svg?react'
+import StartIcon from '../assets/icons/start.svg?react'
+import Sun from '../assets/icons/sun.svg?react'
+import Moon from '../assets/icons/moon.svg?react'
 
 export { AppLogo, CheckIcon, Next, Refresh, TimerIcon, StartIcon, Sun, Moon }

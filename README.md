@@ -2,11 +2,11 @@
 
 # Xeven Quiz - ReactJS Quiz App Template
 
-With **Xeven Quiz**, you don't have to spend hours on coding from scratch. This Quiz App template provides a solid foundation, eliminating the need to reinvent the wheel. You'll spend less time developing your app, which lets you focus on the unique. 
+With **Xeven Quiz**, you don't have to spend hours on coding from scratch. This Quiz App template provides a solid foundation, eliminating the need to reinvent the wheel. You'll spend less time developing your app, which lets you focus on the unique.
 
 Xeven Quiz helps you follow industry best practices and coding conventions as a beginner.
 
-As a beginner developer, a quiz app is a common project. But without guidance, this simple project can become difficult. 
+As a beginner developer, a quiz app is a common project. But without guidance, this simple project can become difficult.
 
 Xeven Quiz is here to change that narrative and give you the tools and knowledge you need to create a successful and efficient quiz app.
 
@@ -20,7 +20,7 @@ With a strong architecture and modular design, you can easily add new features, 
 
 With **ReactJS** at its core, it lets you design dynamic interfaces that automatically update and respond to user interactions.
 
-**TypeScript** brings enhanced development productivity through static typing and intelligent tooling. 
+**TypeScript** brings enhanced development productivity through static typing and intelligent tooling.
 
 **Styled Components** ensure fast and intuitive styling, allowing you to create stunning interfaces effortlessly.
 
@@ -124,7 +124,7 @@ To change the font of the app, follow these steps:
 
 1. Go to **`assets`** ⇒ **`fonts`**.
 2. Replace the current fonts (e.g., "anek-malayalam") with the fonts you want to use.
-3. Go to **`fonts.module.css`** file ****and replace the font name and path with new font you added.
+3. Go to **`fonts.module.css`** file \*\*\*\*and replace the font name and path with new font you added.
 4. Go to the **`theme`** file and change the font name.
 5. Go to the global styles and update the font in the **`body`** section.
 
@@ -175,7 +175,7 @@ Go to the main components file (**`Main/index.ts`**) and render the **`QuizType`
 const screenComponents = {
   [ScreenTypes.SplashScreen]: <SplashScreen />,
   [ScreenTypes.QuizTopicsScreen]: <QuizTopicsScreen />,
-  [ScreenTypes.QuizTypesScreen]: <QuizTypesScreen />, // new screen  
+  [ScreenTypes.QuizTypesScreen]: <QuizTypesScreen />, // new screen
   [ScreenTypes.QuizDetailsScreen]: <QuizDetailsScreen />,
   [ScreenTypes.QuestionScreen]: <QuestionScreen />,
   [ScreenTypes.ResultScreen]: <ResultScreen />,
@@ -274,7 +274,7 @@ Looking for a **Tailwind CSS** version? Check out GitHub Repo of [Flexy Quiz](ht
 
 ## Upgrade to PRO version
 
-Discover the Premium Version! Elevate your experience with the same amazing features you have seen in [demo](https://xeven-quiz.vercel.app/) app. 
+Discover the Premium Version! Elevate your experience with the same amazing features you have seen in [demo](https://xeven-quiz.vercel.app/) app.
 
 [Check it out now!](https://basit313.gumroad.com/l/react-quiz-app-template)
 
