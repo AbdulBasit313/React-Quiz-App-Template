@@ -16,7 +16,6 @@
     "prismjs": "^1.30.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^5.3.6",
     "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
@@ -24,7 +23,6 @@
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
