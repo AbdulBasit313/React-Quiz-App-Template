@@ -1,67 +1,13 @@
 import { FC, useEffect, useState } from 'react'
-import styled from 'styled-components'
-
 import { AppLogo, CheckIcon, Next, TimerIcon } from '../../config/icons'
 import { useQuiz } from '../../context/QuizContext'
 import { useTimer } from '../../hooks'
-import { device } from '../../styles/BreakPoints'
-import { PageCenter } from '../../styles/Global'
 import { ScreenTypes } from '../../types'
-
 import Button from '../ui/Button'
 import ModalWrapper from '../ui/ModalWrapper'
+import PageCenter from '../ui/PageCenter'
 import Question from './Question'
 import QuizHeader from './QuizHeader'
-
-const QuizContainer = styled.div<{ selectedAnswer: boolean }>`
-  width: 900px;
-  min-height: 500px;
-  background: ${({ theme }) => theme.colors.cardBackground};
-  border-radius: 4px;
-  padding: 30px 60px 80px 60px;
-  margin-bottom: 70px;
-  position: relative;
-  @media ${device.md} {
-    width: 100%;
-    padding: 15px 15px 80px 15px;
-  }
-  button {
-    span {
-      svg {
-        path {
-          fill: ${({ selectedAnswer, theme }) =>
-            selectedAnswer ? `${theme.colors.buttonText}` : `${theme.colors.darkGray}`};
-        }
-      }
-    }
-  }
-`
-
-const LogoContainer = styled.div`
-  margin-top: 50px;
-  margin-bottom: 50px;
-  @media ${device.md} {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    svg {
-      width: 185px;
-      height: 80px;
-    }
-  }
-`
-
-const ButtonWrapper = styled.div`
-  position: absolute;
-  right: 60px;
-  bottom: 30px;
-  display: flex;
-  gap: 20px;
-  @media ${device.sm} {
-    justify-content: flex-end;
-    width: 90%;
-    right: 15px;
-  }
-`
 
 const QuestionScreen: FC = () => {
   const [activeQuestion, setActiveQuestion] = useState<number>(0)
@@ -71,6 +17,7 @@ const QuestionScreen: FC = () => {
 
   const {
     questions,
+    setQuestions,
     quizDetails,
     result,
     setResult,
@@ -123,6 +70,16 @@ const QuestionScreen: FC = () => {
     }
   }
 
+  const handleSkipQuestion = () => {
+    const filterQuestion = questions.filter(
+      (item) => item.question !== currentQuestion.question
+    )
+
+    // in case of skip question add current questions to the end of questions array, with skipped key
+    setQuestions([...filterQuestion, { ...currentQuestion, skipped: true }])
+    setSelectedAnswer([])
+  }
+
   const handleModal = () => {
     setCurrentScreen(ScreenTypes.ResultScreen)
     document.body.style.overflow = 'auto'
@@ -140,10 +97,10 @@ const QuestionScreen: FC = () => {
 
   return (
     <PageCenter>
-      <LogoContainer>
-        <AppLogo />
-      </LogoContainer>
-      <QuizContainer selectedAnswer={selectedAnswer.length > 0}>
+      <div className="text-app-logo mt-3 mb-5 text-center md:my-12">
+        <AppLogo className="w-[185px] md:w-[270px]" />
+      </div>
+      <div className="bg-card-bg relative mb-18 min-h-[500px] w-full rounded-sm p-4 pb-20 md:w-[900px] md:px-14 md:pt-8">
         <QuizHeader
           activeQuestion={activeQuestion}
           totalQuestions={quizDetails.totalQuestions}
@@ -158,7 +115,7 @@ const QuestionScreen: FC = () => {
           handleAnswerSelection={handleAnswerSelection}
           selectedAnswer={selectedAnswer}
         />
-        <ButtonWrapper>
+        <div className="absolute right-4 bottom-8 flex w-[90%] justify-end gap-5 md:right-15 md:w-auto md:justify-normal">
           <Button
             text={activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
             onClick={onClickNext}
@@ -166,8 +123,9 @@ const QuestionScreen: FC = () => {
             iconPosition="right"
             disabled={selectedAnswer.length === 0}
           />
-        </ButtonWrapper>
-      </QuizContainer>
+        </div>
+      </div>
+
       {/* timer or finish quiz modal*/}
       {(showTimerModal || showResultModal) && (
         <ModalWrapper

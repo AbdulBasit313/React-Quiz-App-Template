@@ -1,35 +1,8 @@
 import { FC } from 'react'
-import styled from 'styled-components'
-
-import { device } from '../../../styles/BreakPoints'
 
 import CodeSnippet from '../../ui/CodeSnippet'
-import Answer from '../Answer'
 import QuizImage from '../../ui/QuizImage'
-
-const QuestionContainer = styled.div`
-  margin-top: 30px;
-  margin-bottom: 40px;
-  max-width: 88%;
-  @media ${device.sm} {
-    max-width: 100%;
-  }
-`
-
-const AnswersContainer = styled.div`
-  max-width: 78%;
-  @media ${device.sm} {
-    max-width: 100%;
-  }
-`
-
-const QuestionStyle = styled.h2`
-  font-size: clamp(18px, 4vw, 28px);
-  font-weight: 500;
-  margin-bottom: 25px;
-  color: ${({ theme }) => theme.colors.primaryText};
-  line-height: 1.3;
-`
+import Answer from '../Answer'
 
 interface QuestionTypes {
   question: string
@@ -51,13 +24,15 @@ const Question: FC<QuestionTypes> = ({
   handleAnswerSelection,
 }) => {
   return (
-    <QuestionContainer>
-      <QuestionStyle>{question}</QuestionStyle>
+    <div className="mt-8 mb-10 max-w-full md:max-w-[88%]">
+      <h2 className="text-primary-text mb-6 text-[clamp(18px,_4vw,_28px)] leading-[1.3] font-medium">
+        {question}
+      </h2>
       {/* if question contains code snippet then show code */}
       {code && <CodeSnippet code={code} language="javascript" />}
       {/* if question contains an image */}
       {image && <QuizImage image={image} />}
-      <AnswersContainer>
+      <div className="max-w-full md:max-w-[78%]">
         {choices.map((choice, index) => (
           <Answer
             choice={choice}
@@ -68,8 +43,8 @@ const Question: FC<QuestionTypes> = ({
             selectedAnswer={selectedAnswer}
           />
         ))}
-      </AnswersContainer>
-    </QuestionContainer>
+      </div>
+    </div>
   )
 }
 

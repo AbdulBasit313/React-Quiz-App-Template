@@ -1,82 +1,13 @@
-import styled from 'styled-components'
-
 import { AppLogo } from '../../config/icons'
 import { useQuiz } from '../../context/QuizContext'
 import { quizTopics } from '../../data/quizTopics'
-import { device } from '../../styles/BreakPoints'
-import {
-  CenterCardContainer,
-  HighlightedText,
-  LogoContainer,
-  PageCenter,
-} from '../../styles/Global'
 import { ScreenTypes } from '../../types'
 
+import cn from 'classnames'
 import Button from '../ui/Button'
-
-const Heading = styled.h2`
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-align: center;
-`
-
-const DetailText = styled.p`
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 29px;
-  text-align: center;
-`
-
-const SelectButtonContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 60%;
-  gap: 30px;
-  margin-top: 40px;
-  margin-bottom: 45px;
-  @media ${device.md} {
-    row-gap: 20px;
-    column-gap: 20px;
-    max-width: 100%;
-  }
-`
-
-interface SelectButtonProps {
-  active: boolean
-  disabled?: boolean
-}
-
-const SelectButton = styled.div<SelectButtonProps>`
-  background-color: ${({ disabled, theme }) =>
-    disabled ? `${theme.colors.disabledCard}` : `${theme.colors.selectTopicBg}`};
-  border: ${({ active, theme }) =>
-    active
-      ? `2px solid ${theme.colors.themeColor}`
-      : `1px solid ${theme.colors.disabledButton}`};
-  transition: background-color 0.4s ease-out;
-  border-radius: 10px;
-  padding: 14px 10px;
-  display: flex;
-  align-items: center;
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-  @media ${device.md} {
-    padding: 10px;
-    tap-highlight-color: transparent;
-    -webkit-tap-highlight-color: transparent;
-  }
-`
-
-const SelectButtonText = styled.span`
-  font-size: 18px;
-  font-weight: 600;
-  margin-left: 10px;
-  @media ${device.md} {
-    font-size: 16px;
-    font-weight: 500;
-  }
-`
+import CenterCardContainer from '../ui/CenterCardContainer'
+import HighlightedText from '../ui/HighlightedText'
+import PageCenter from '../ui/PageCenter'
 
 const QuizTopicsScreen: React.FC = () => {
   const { quizTopic, selectQuizTopic, setCurrentScreen } = useQuiz()
@@ -88,26 +19,38 @@ const QuizTopicsScreen: React.FC = () => {
   return (
     <PageCenter light justifyCenter>
       <CenterCardContainer>
-        <LogoContainer>
-          <AppLogo />
-        </LogoContainer>
-        <Heading>
+        <div className="text-app-logo mb-8 text-center md:mb-12">
+          <AppLogo width={220} />
+        </div>
+        <h2 className="mb-5 text-center text-3xl font-bold">
           WELCOME TO <HighlightedText> XEVEN QUIZ</HighlightedText>
-        </Heading>
-        <DetailText>Select topic below to start your Quiz.</DetailText>
-        <SelectButtonContainer>
+        </h2>
+        <p className="text-center text-xl leading-7 font-medium">
+          Select topic below to start your Quiz.
+        </p>
+        <div className="mt-10 mb-11 flex max-w-full flex-wrap justify-center gap-5 md:max-w-[60%] md:gap-7">
           {quizTopics.map(({ title, icon, disabled }) => (
-            <SelectButton
+            <div
               key={title}
-              active={quizTopic === title}
               onClick={() => !disabled && selectQuizTopic(title)}
-              disabled={disabled}
+              className={cn(
+                'flex items-center rounded-xl p-3 transition-colors duration-500 ease-out [-webkit-tap-highlight-color:_transparent] [tap-highlight-color:_transparent] md:px-3 md:py-4',
+                disabled
+                  ? 'bg-disabled-card cursor-not-allowed'
+                  : 'bg-select-topic-bg cursor-pointer',
+                quizTopic === title
+                  ? `border-theme-color border-2`
+                  : `border-disabled-button border`
+              )}
             >
               {icon}
-              <SelectButtonText>{title}</SelectButtonText>
-            </SelectButton>
+              <span className="ml-3 text-base font-medium md:text-lg md:font-semibold">
+                {title}
+              </span>
+            </div>
           ))}
-        </SelectButtonContainer>
+        </div>
+
         <Button text="Continue" onClick={goToQuizDetailsScreen} bold />
       </CenterCardContainer>
     </PageCenter>
