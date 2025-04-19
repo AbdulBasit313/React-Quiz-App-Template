@@ -17,7 +17,6 @@ const QuestionScreen: FC = () => {
 
   const {
     questions,
-    setQuestions,
     quizDetails,
     result,
     setResult,
@@ -68,16 +67,6 @@ const QuestionScreen: FC = () => {
         setSelectedAnswer([name])
       }
     }
-  }
-
-  const handleSkipQuestion = () => {
-    const filterQuestion = questions.filter(
-      (item) => item.question !== currentQuestion.question
-    )
-
-    // in case of skip question add current questions to the end of questions array, with skipped key
-    setQuestions([...filterQuestion, { ...currentQuestion, skipped: true }])
-    setSelectedAnswer([])
   }
 
   const handleModal = () => {

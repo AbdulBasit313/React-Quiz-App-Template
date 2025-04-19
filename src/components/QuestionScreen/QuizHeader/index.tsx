@@ -7,14 +7,12 @@ interface QuizHeaderProps {
   activeQuestion: number
   totalQuestions: number
   timer: number
-  skipped?: boolean
 }
 
 const QuizHeader: FC<QuizHeaderProps> = ({
   activeQuestion,
   totalQuestions,
   timer,
-  skipped,
 }) => {
   return (
     <Flex spaceBetween gap="6px">
@@ -27,11 +25,6 @@ const QuizHeader: FC<QuizHeaderProps> = ({
         </span>
       </div>
       <Flex>
-        {skipped && (
-          <span className="text-info-text bg-info-bg mt-3 inline-block rounded-2xl px-4 py-3 text-center text-[clamp(12px,_4vw,_16px)] font-bold md:px-5 md:py-4">
-            Skipped Question
-          </span>
-        )}
         <Counter time={`${formatTime(timer)}`} />
       </Flex>
     </Flex>

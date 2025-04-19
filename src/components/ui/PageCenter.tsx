@@ -8,7 +8,7 @@ interface PageCenterProps {
   children: ReactNode
 }
 
-const PageCenter: FC<PageCenterProps> = ({ light, theme, justifyCenter, children }) => {
+const PageCenter: FC<PageCenterProps> = ({ light, justifyCenter, children }) => {
   return (
     <div
       className={cn(
