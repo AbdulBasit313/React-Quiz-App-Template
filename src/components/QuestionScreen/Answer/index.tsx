@@ -17,10 +17,10 @@ const Answer: FC<AnswerProps> = ({ onChange, index, choice, type, selectedAnswer
     <div
       key={index}
       className={cn(
-        'text-secondary-text mt-[clamp(13px,_calc(10px_+_6_*_((100vw_-_600px)_/_1320)),_16px)] cursor-pointer rounded-2xl border text-[clamp(18px,_4vw,_16px)] font-medium md:font-normal',
+        'text-secondary-text mt-[13px] cursor-pointer rounded-2xl border text-[16px] font-medium sm:mt-[14px] md:mt-[15px] md:text-[17px] md:font-normal lg:mt-[16px] lg:text-[18px]',
         selectedAnswer.includes(choice)
           ? 'text-theme-color bg-selected-answer transition-all duration-200 ease-in'
-          : 'text-border bg-answer-bg'
+          : 'text-border bg-answer-bg',
       )}
     >
       <label className="flex cursor-pointer p-[14px] md:p-[18px]">

@@ -45,8 +45,8 @@ const ResultScreen: FC = () => {
               >
                 <div className="w-[90%]">
                   <Flex gap="4px">
-                    <h6 className="text-primary-text text-[clamp(16px,_5vw,_24px)] leading-[1.3] font-medium">{`${index + 1}. `}</h6>
-                    <span className="text-primary-text mb-[10px] text-[clamp(16px,_5vw,_24px)] leading-[1.3] font-medium md:mb-5">
+                    <h6 className="text-primary-text text-[16px] leading-[1.3] font-medium sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px]">{`${index + 1}. `}</h6>
+                    <span className="text-primary-text mb-[10px] text-[16px] leading-[1.3] font-medium sm:text-[18px] md:mb-5 md:text-[20px] lg:text-[22px] xl:text-[24px]">
                       {question}
                     </span>
                   </Flex>
@@ -66,7 +66,7 @@ const ResultScreen: FC = () => {
                           <li
                             key={ans}
                             className={cn(
-                              'border-border bg-answer-bg text-secondary-text mt-[clamp(13px,_calc(10px_+_6_*_((100vw_-_600px)_/_1320)),_16px)]_md:w-[90%]_w-full rounded-2xl border p-4 text-[clamp(16px,_5vw,_18px)] font-normal md:font-semibold',
+                              'border-border bg-answer-bg text-secondary-text mt-[13px] w-full rounded-2xl border p-4 text-[16px] font-normal sm:mt-[14px] sm:text-[17px] md:mt-[15px] md:w-[90%] md:text-[18px] md:font-semibold lg:mt-[16px]',
                               { 'border-success bg-success-light border': correct },
                               { 'border-danger bg-danger-light border': wrong },
                             )}

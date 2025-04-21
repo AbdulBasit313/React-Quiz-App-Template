@@ -25,7 +25,7 @@ const Question: FC<QuestionTypes> = ({
 }) => {
   return (
     <div className="mt-8 mb-10 max-w-full md:max-w-[88%]">
-      <h2 className="text-primary-text mb-6 text-[clamp(18px,_4vw,_28px)] leading-[1.3] font-medium">
+      <h2 className="text-primary-text mb-6 text-[18px] leading-[1.3] font-medium sm:text-[20px] md:text-[24px] lg:text-[26px] xl:text-[28px]">
         {question}
       </h2>
       {/* if question contains code snippet then show code */}

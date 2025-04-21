@@ -27,7 +27,7 @@ const Button: FC<ButtonTypes> = ({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'active:shadow-active-button disabled:bg-disabled-button disabled:text-dark-grey flex min-h-[40px] cursor-pointer items-center justify-center gap-4 rounded-lg text-[clamp(16px,_5vw,_24px)] active:scale-[0.98] active:transition-all active:duration-200 disabled:transform-[unset] disabled:cursor-not-allowed disabled:shadow-none md:min-h-[50px] md:w-[195px]',
+        'active:shadow-active-button disabled:bg-disabled-button disabled:text-dark-grey flex min-h-[40px] cursor-pointer items-center justify-center gap-4 rounded-lg text-[16px] active:scale-[0.98] active:transition-all active:duration-200 disabled:transform-[unset] disabled:cursor-not-allowed disabled:shadow-none sm:text-[18px] md:min-h-[50px] md:w-[195px] md:text-[20px] lg:text-[22px] xl:text-[24px]',
         outline
           ? 'text-outline-button-text bg-card-bg border-theme-color border'
           : 'text-button-text not-disabled:button-background border-none',
