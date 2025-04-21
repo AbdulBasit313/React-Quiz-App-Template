@@ -1,122 +1,14 @@
+import cn from 'classnames'
 import { FC } from 'react'
-import styled, { css } from 'styled-components'
-
 import { AppLogo, Refresh } from '../../config/icons'
 import { useQuiz } from '../../context/QuizContext'
-import { device } from '../../styles/BreakPoints'
-import { Flex, LogoContainer, ResizableBox } from '../../styles/Global'
 import { refreshPage } from '../../utils/helpers'
-
 import Button from '../ui/Button'
 import CodeSnippet from '../ui/CodeSnippet'
+import Flex from '../ui/Flex'
 import QuizImage from '../ui/QuizImage'
 import ResultOverview from './ResultOverview'
 import RightAnswer from './RightAnswer'
-
-const ResultScreenContainer = styled.div`
-  max-width: 900px;
-  margin: 60px auto;
-  @media ${device.md} {
-    width: 90%;
-    margin: 30px auto;
-    padding-top: 40px;
-  }
-`
-
-const InnerContainer = styled.div`
-  background: ${({ theme }) => theme.colors.cardBackground};
-  border-radius: 4px;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  padding: 40px 90px 90px 90px;
-  @media ${device.md} {
-    padding: 15px;
-  }
-`
-
-const QuestionContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  @media ${device.md} {
-    flex-direction: column;
-  }
-`
-
-const QuestionNumber = styled.h6`
-  font-size: clamp(16px, 5vw, 24px);
-  font-weight: 500;
-  line-height: 1.3;
-  color: ${({ theme }) => theme.colors.primaryText};
-`
-
-const QuestionStyle = styled.span`
-  font-size: clamp(16px, 5vw, 24px);
-  font-weight: 500;
-  line-height: 1.3;
-  color: ${({ theme }) => theme.colors.primaryText};
-  margin-bottom: 20px;
-  @media ${device.md} {
-    margin-bottom: 10px;
-  }
-`
-
-interface AnswerProps {
-  correct?: boolean
-  wrong?: boolean
-}
-
-const Answer = styled.li<AnswerProps>`
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  width: 90%;
-  @media ${device.md} {
-    width: 100%;
-  }
-  background: ${({ theme }) => theme.colors.answerBg};
-  border-radius: 16px;
-  font-size: clamp(16px, 5vw, 18px);
-  font-weight: 600;
-  padding: 15px;
-  color: ${({ theme }) => theme.colors.secondaryText};
-  margin-top: clamp(13px, calc(10px + 6 * ((100vw - 600px) / 1320)), 16px);
-
-  // if user answer matches to correct answer make answer background success color otherwise danger color
-  ${({ correct }) =>
-    correct &&
-    css`
-      border: 1px solid ${({ theme }) => theme.colors.success};
-      background-color: ${({ theme }) => theme.colors.successLight};
-    `}
-
-  ${({ wrong }) =>
-    wrong &&
-    css`
-      border: 1px solid ${({ theme }) => theme.colors.danger};
-      background-color: ${({ theme }) => theme.colors.dangerLight};
-    `}
-
-  span {
-    margin-right: 14px;
-  }
-
-  @media ${device.md} {
-    font-weight: 400;
-  }
-`
-
-const Score = styled.span<{ right: boolean }>`
-  font-weight: 500;
-  font-size: 16px;
-  color: ${({ right, theme }) =>
-    right ? `${theme.colors.success}` : `${theme.colors.danger}`};
-  margin-top: 4px;
-  @media ${device.md} {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-    margin-right: 10px;
-  }
-`
 
 const ResultScreen: FC = () => {
   const { result } = useQuiz()
@@ -126,11 +18,11 @@ const ResultScreen: FC = () => {
   }
 
   return (
-    <ResultScreenContainer>
-      <LogoContainer>
-        <AppLogo />
-      </LogoContainer>
-      <InnerContainer>
+    <div className="mx-auto my-8 w-[90%] max-w-[900px] p-10 md:my-14 md:w-auto md:p-0">
+      <div className="text-app-logo mb-8 text-center md:mb-12">
+        <AppLogo width={220} className="mx-auto" />
+      </div>
+      <div className="bg-card-bg mx-auto mt-0 mb-10 rounded-sm p-4 md:px-[90px] md:pt-10 md:pb-[90px]">
         <ResultOverview result={result} />
         {result.map(
           (
@@ -144,14 +36,19 @@ const ResultScreen: FC = () => {
               score,
               isMatch,
             },
-            index: number
+            index: number,
           ) => {
             return (
-              <QuestionContainer key={question}>
-                <ResizableBox width="90%">
+              <div
+                key={question}
+                className="mt-10 flex flex-col justify-between md:flex-row"
+              >
+                <div className="w-[90%]">
                   <Flex gap="4px">
-                    <QuestionNumber>{`${index + 1}. `}</QuestionNumber>
-                    <QuestionStyle>{question}</QuestionStyle>
+                    <h6 className="text-primary-text text-[16px] leading-[1.3] font-medium sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px]">{`${index + 1}. `}</h6>
+                    <span className="text-primary-text mb-[10px] text-[16px] leading-[1.3] font-medium sm:text-[18px] md:mb-5 md:text-[20px] lg:text-[22px] xl:text-[24px]">
+                      {question}
+                    </span>
                   </Flex>
                   <div>
                     {code && <CodeSnippet code={code} language="javascript" />}
@@ -166,10 +63,17 @@ const ResultScreen: FC = () => {
                           selectedAnswer.includes(ans) && !correctAnswers.includes(ans)
 
                         return (
-                          <Answer key={ans} correct={correct} wrong={wrong}>
-                            <span>{label}.</span>
+                          <li
+                            key={ans}
+                            className={cn(
+                              'border-border bg-answer-bg text-secondary-text mt-[13px] w-full rounded-2xl border p-4 text-[16px] font-normal sm:mt-[14px] sm:text-[17px] md:mt-[15px] md:w-[90%] md:text-[18px] md:font-semibold lg:mt-[16px]',
+                              { 'border-success bg-success-light border': correct },
+                              { 'border-danger bg-danger-light border': wrong },
+                            )}
+                          >
+                            <span className="mr-[14px]">{label}.</span>
                             {ans}
-                          </Answer>
+                          </li>
                         )
                       })}
                     </ul>
@@ -178,13 +82,18 @@ const ResultScreen: FC = () => {
                       <RightAnswer correctAnswers={correctAnswers} choices={choices} />
                     )}
                   </div>
-                </ResizableBox>
-                <Score right={isMatch}>{`Score ${isMatch ? score : 0}`}</Score>
-              </QuestionContainer>
+                </div>
+                <span
+                  className={cn(
+                    'mt-[10px] mr-[10px] flex justify-end text-base font-medium md:mt-1 md:mr-0 md:inline',
+                    isMatch ? 'text-success' : 'text-danger',
+                  )}
+                >{`Score ${isMatch ? score : 0}`}</span>
+              </div>
             )
-          }
+          },
         )}
-      </InnerContainer>
+      </div>
       <Flex flxEnd>
         <Button
           text="RETRY"
@@ -194,7 +103,7 @@ const ResultScreen: FC = () => {
           bold
         />
       </Flex>
-    </ResultScreenContainer>
+    </div>
   )
 }
 

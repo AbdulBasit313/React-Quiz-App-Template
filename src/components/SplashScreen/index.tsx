@@ -1,29 +1,17 @@
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
 
 import { AppLogo } from '../../config/icons'
-import { PageCenter } from '../../styles/Global'
-
-interface LogoAnimationProps {
-  logoSize: string
-}
-
-const LogoAnimation = styled.div<LogoAnimationProps>`
-  svg {
-    width: ${({ logoSize }) => logoSize};
-    transition: width 1s;
-  }
-`
+import PageCenter from '../ui/PageCenter'
 
 const SplashScreen = () => {
-  const [logoSize, setLogoSize] = useState('80px')
+  const [logoSize, setLogoSize] = useState(0.25)
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 900) {
-        setLogoSize('240px')
+        setLogoSize(0.75)
       } else {
-        setLogoSize('350px')
+        setLogoSize(1)
       }
     }
 
@@ -41,9 +29,10 @@ const SplashScreen = () => {
 
   return (
     <PageCenter justifyCenter>
-      <LogoAnimation logoSize={logoSize}>
-        <AppLogo />
-      </LogoAnimation>
+      <AppLogo
+        className="text-app-logo transition-all duration-1000"
+        style={{ scale: logoSize }}
+      />
     </PageCenter>
   )
 }

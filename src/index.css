@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+@import './styles/fonts.module.css';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-primary-text: #11052c;
+  --color-secondary-text: #2d264b;
+  --color-disabled-card: #fbf4ecbc;
+  --color-select-topic-bg: #ffffff;
+  --color-theme-color: #800080;
+  --color-disabled-button: #e7e8e9;
+  --color-outline-button-text: #800080;
+  --color-button-text: #ffffff;
+  --color-card-bg: #ffffff;
+  --color-dark: #282526;
+  --color-dark-grey: #9fa3a9;
+  --color-darker-grey: #817a8e;
+  --color-theme-text: #000000;
+  --color-app-logo: #000000;
+  --color-border: #eaeaea;
+  --color-selected-answer: #ffd6ff;
+  --color-answer-bg: #ffffff;
+  --color-info-text: #ff783f;
+  --color-info-bg: #ffb23f26;
+  --color-success: #12b40e;
+  --color-success-light: #ddffdc;
+  --color-danger: #ff143e;
+  --color-danger-light: #ffd7de;
+
+  --shadow-active-button: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+
+  --animate-slide-off: slide-off 0.2s linear forwards;
+  --animate-slide-on: slide-on 0.2s linear forwards;
+
+  @keyframes slide-off {
+    0% {
+      transform: translateX(23px) scale(1);
+    }
+    50% {
+      transform: translateX(15px) scale(1.1);
+    }
+    100% {
+      transform: translateX(0px) scale(1);
+    }
+  }
+
+  @keyframes slide-on {
+    0% {
+      transform: translateX(0) scale(1);
+    }
+    50% {
+      transform: translateX(15px) scale(1.1);
+    }
+    100% {
+      transform: translateX(23px) scale(1);
+    }
+  }
+}
+
+@variant dark {
+  --color-primary-text: #ffffff;
+  --color-secondary-text: #ffffff;
+  --color-disabled-card: #00000080;
+  --color-select-topic-bg: #21191c;
+  --color-theme-color: #c000c0;
+  --color-disabled-button: #181214;
+  --color-outline-button-text: #ffffff;
+  --color-button-text: #000000;
+  --color-card-bg: #241a1a;
+  --color-dark: #282526;
+  --color-dark-grey: #9fa3a9;
+  --color-darker-grey: #817a8e;
+  --color-theme-text: #ffffff;
+  --color-app-logo: #ffffff;
+  --color-border: transparent;
+  --color-selected-answer: #151113;
+  --color-answer-bg: #151113;
+  --color-info-text: #ff783f;
+  --color-info-bg: #ffb23f26;
+  --color-success: #12b40e;
+  --color-success-light: #151113;
+  --color-danger: #ff143e;
+  --color-danger-light: #151113;
+
+  --shadow-active-button: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+@utility theme-gradient {
+  background: linear-gradient(to right, #800080, #ffc0cb);
+
+  @variant dark {
+    background: linear-gradient(90deg, #0e050e 0%, #281e20 100%);
+  }
+}
+
+@utility background {
+  background: #e5e5e5;
+
+  @variant dark {
+    background: linear-gradient(90deg, #0e050e 0%, #281e20 100%);
+  }
+}
+
+@utility button-background {
+  background: linear-gradient(90.04deg, #800080 0.03%, #ffc0cb 99.96%);
+
+  @variant dark {
+    background: linear-gradient(90.04deg, #800080 0.03%, #ffc0cb 99.96%);
+  }
+}
+
+body {
+  @apply text-theme-text background relative min-h-dvh overflow-x-hidden text-base;
+
+  font-family: 'Anek Malayalam', sans-serif;
+  font-size: 1rem;
+  line-height: 1rem;
+}

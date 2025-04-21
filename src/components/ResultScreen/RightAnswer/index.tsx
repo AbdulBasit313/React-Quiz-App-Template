@@ -1,24 +1,14 @@
 import { FC } from 'react'
-import styled from 'styled-components'
-
-import { HighlightedText } from '../../../styles/Global'
+import HighlightedText from '../../ui/HighlightedText'
 
 interface RightAnswerProps {
   correctAnswers: string[]
   choices: string[]
 }
 
-const RightAnswerContainer = styled.p`
-  font-size: 18px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.colors.darkerGray};
-  margin-top: 15px;
-  line-height: 1.2;
-`
-
 const RightAnswer: FC<RightAnswerProps> = ({ correctAnswers, choices }) => {
   return (
-    <RightAnswerContainer>
+    <p className="text-darker-grey mt-4 text-lg leading-[1.2] font-normal">
       {`Right ${correctAnswers.length < 2 ? 'Answer' : 'Answers'}: `}
       {correctAnswers.map((item: string, index: number) => {
         const label = String.fromCharCode(65 + choices.indexOf(item))
@@ -29,7 +19,7 @@ const RightAnswer: FC<RightAnswerProps> = ({ correctAnswers, choices }) => {
           </HighlightedText>
         )
       })}
-    </RightAnswerContainer>
+    </p>
   )
 }
 

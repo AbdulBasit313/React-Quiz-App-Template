@@ -1,22 +1,7 @@
+import Flex from '../../ui/Flex'
 import { FC } from 'react'
-import styled from 'styled-components'
-
-import { Flex } from '../../../styles/Global'
 import { addLeadingZero, formatTime } from '../../../utils/helpers'
-
 import Counter from './Counter'
-
-const ActiveQuestionNo = styled.span`
-  font-size: clamp(40px, 5vw, 60px);
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.themeColor};
-`
-
-const TotalQuestionNo = styled.span`
-  font-size: clamp(20px, 5vw, 30px);
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.darkerGray};
-`
 
 interface QuizHeaderProps {
   activeQuestion: number
@@ -28,8 +13,12 @@ const QuizHeader: FC<QuizHeaderProps> = ({ activeQuestion, totalQuestions, timer
   return (
     <Flex spaceBetween gap="6px">
       <div>
-        <ActiveQuestionNo>{addLeadingZero(activeQuestion + 1)}</ActiveQuestionNo>
-        <TotalQuestionNo>/{addLeadingZero(totalQuestions)}</TotalQuestionNo>
+        <span className="text-theme-color text-[40px] font-medium sm:text-[45px] md:text-[50px] lg:text-[55px] xl:text-[60px]">
+          {addLeadingZero(activeQuestion + 1)}
+        </span>
+        <span className="text-darker-grey text-[20px] font-medium sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px]">
+          /{addLeadingZero(totalQuestions)}
+        </span>
       </div>
       <Flex>
         <Counter time={`${formatTime(timer)}`} />

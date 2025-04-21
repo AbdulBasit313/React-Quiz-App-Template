@@ -1,17 +1,20 @@
-import { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
+import { useEffect, useState } from 'react'
 
 import Main from './components/Main'
 import ToggleTheme from './components/ui/ToggleTheme'
 import QuizProvider from './context/QuizProvider'
-import { GlobalStyles } from './styles/Global'
-import { themes } from './styles/Theme'
 
 function App() {
-  const [currentTheme, setCurrentTheme] = useState(() => {
+  const [currentTheme, setCurrentTheme] = useState('light')
+
+  useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
-    return savedTheme || 'light'
-  })
+    if (savedTheme) setCurrentTheme(savedTheme)
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', currentTheme)
+  }, [currentTheme])
 
   const toggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target
@@ -19,22 +22,17 @@ function App() {
     localStorage.setItem('theme', checked ? 'dark' : 'light')
   }
 
-  const theme = currentTheme === 'light' ? themes.light : themes.dark
-
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <QuizProvider>
-        <ToggleTheme
-          onChange={toggleTheme}
-          currentTheme={currentTheme}
-          checked={currentTheme === 'dark'}
-          id="toggleTheme"
-          value="theme"
-        />
-        <Main />
-      </QuizProvider>
-    </ThemeProvider>
+    <QuizProvider>
+      <ToggleTheme
+        onChange={toggleTheme}
+        currentTheme={currentTheme}
+        checked={currentTheme === 'dark'}
+        id="toggleTheme"
+        value="theme"
+      />
+      <Main />
+    </QuizProvider>
   )
 }
 
