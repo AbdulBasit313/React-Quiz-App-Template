@@ -19,8 +19,8 @@ const Answer: FC<AnswerProps> = ({ onChange, index, choice, type, selectedAnswer
       className={cn(
         'text-secondary-text mt-[13px] cursor-pointer rounded-2xl border text-[16px] font-medium sm:mt-[14px] md:mt-[15px] md:text-[17px] md:font-normal lg:mt-[16px] lg:text-[18px]',
         selectedAnswer.includes(choice)
-          ? 'text-theme-color bg-selected-answer transition-all duration-200 ease-in'
-          : 'text-border bg-answer-bg',
+          ? 'border-theme-color bg-selected-answer transition-all duration-200 ease-in'
+          : 'border-border bg-answer-bg',
       )}
     >
       <label className="flex cursor-pointer p-[14px] md:p-[18px]">
